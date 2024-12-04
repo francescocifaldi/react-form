@@ -1,0 +1,22 @@
+.card {
+    border: 1px solid;
+    border-radius: 25px;
+    margin-bottom: 2rem;
+}
+
+.image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.description {
+    margin-top: 1rem;
+}
+
+.body {
+    padding: 10px;
+}
