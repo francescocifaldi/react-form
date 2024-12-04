@@ -13,12 +13,12 @@ export default function Main() {
     })
 
     const [title, setTitle] = useState('')
-    const [Description, setDescription] = useState('')
+    const [description, setDescription] = useState('')
     const [newPosts, setNewPosts] = useState(posts)
 
     function addPost(event) {
         event.preventDefault();
-
+        console.log(`Ho aggiunto: ${title} ${description}`)
     }
 
     return (
@@ -26,8 +26,8 @@ export default function Main() {
             <main>
                 <div className="container">
                     <form action="" onSubmit={addPost}>
-                        <input type="text" placeholder="Title" />
-                        <input type="text" placeholder="Description" />
+                        <input type="text" onChange={(event) => setTitle(event.target.value)} placeholder="Title" value={title} />
+                        <input type="text" onChange={(event) => setDescription(event.target.value)} placeholder="Description" value={description} />
                         <input type="button" value="Add" />
                     </form>
                 </div>
