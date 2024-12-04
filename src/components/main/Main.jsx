@@ -1,5 +1,6 @@
 import Card from "../card/Card";
 import posts from "../../posts";
+import { useState } from "react";
 
 export default function Main() {
     const uniqueTags = []
@@ -11,7 +12,12 @@ export default function Main() {
         })
     })
 
-    function addPost() {
+    const [title, setTitle] = useState('')
+    const [Description, setDescription] = useState('')
+    const [newPosts, setNewPosts] = useState(posts)
+
+    function addPost(event) {
+        event.preventDefault();
 
     }
 
@@ -19,7 +25,7 @@ export default function Main() {
         <>
             <main>
                 <div className="container">
-                    <form action="" onSubmit={addPost()}>
+                    <form action="" onSubmit={addPost}>
                         <input type="text" placeholder="Title" />
                         <input type="text" placeholder="Description" />
                         <input type="button" value="Add" />
