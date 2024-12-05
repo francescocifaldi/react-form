@@ -19,6 +19,12 @@ export default function Main() {
     function addPost(event) {
         event.preventDefault();
         console.log(`Ho aggiunto: ${title} ${description}`)
+        const newPost = {
+            id: Date.now(), title, content: description, published: true, image: undefined, tags: []
+        }
+        console.log('obj:', newPost)
+        setNewPosts([...newPosts, newPost])
+        console.log(newPosts)
     }
 
     return (
@@ -28,7 +34,7 @@ export default function Main() {
                     <form action="" onSubmit={addPost}>
                         <input type="text" onChange={(event) => setTitle(event.target.value)} placeholder="Title" value={title} />
                         <input type="text" onChange={(event) => setDescription(event.target.value)} placeholder="Description" value={description} />
-                        <input type="button" value="Add" />
+                        <button>Add</button>
                     </form>
                 </div>
                 <div className="container">
@@ -41,7 +47,7 @@ export default function Main() {
                 < div className="container" >
                     <div className="row">
                         {
-                            posts.map((post) => (
+                            newPosts.map((post) => (
 
                                 <div key={post.id} className="col-4">
                                     {post.published &&
