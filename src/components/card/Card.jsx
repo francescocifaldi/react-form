@@ -2,7 +2,7 @@ import style from './Card.module.css'
 import Button from "../button/Button"
 import placeholder from "../../assets/31343C.svg"
 
-export default function Card({ post }) {
+export default function Card({ onDelete = () => { }, post }) {
 
     const {
         id,
@@ -11,6 +11,10 @@ export default function Card({ post }) {
         tags,
         image
     } = post
+
+    function callback() {
+        console.log('Elimino elemento')
+    }
 
     return (
 
@@ -28,7 +32,11 @@ export default function Card({ post }) {
                     ))}
 
                 </ul>
-                <Button />
+                <div className={style.buttons}>
+                    <Button />
+                    <button onClick={onDelete}>Delete</button>
+                </div>
+
             </div>
         </div>
     )

@@ -27,6 +27,10 @@ export default function Main() {
         console.log(newPosts)
     }
 
+    function deletePost(id) {
+        setNewPosts(newPosts.filter((post) => (post.id !== id)))
+    }
+
     return (
         <>
             <main>
@@ -51,7 +55,7 @@ export default function Main() {
 
                                 <div key={post.id} className="col-4">
                                     {post.published &&
-                                        < Card post={post} />
+                                        < Card onDelete={() => deletePost(post.id)} post={post} />
                                     }
                                 </div>
 
